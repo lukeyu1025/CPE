@@ -1,4 +1,3 @@
-//測茲過了，批改沒過(TLE)
 #include <iostream>
 using namespace std;
 int main(){
@@ -10,23 +9,24 @@ int main(){
 	for(int i=0;i<t;i++){
 		double cnt=0,num[1000],total=0;
 		string tree[1000],str;
-		getline(cin,str);
-		while(str!=""){
-			total++;
-			bool flag=true;
-			for(int j=0;j<cnt;j++){
-				if(str==tree[j]){
-					num[j]++;
-					flag=false;
-					break;
+		while(getline(cin,str)){
+			if(str!=""){
+				total++;
+				bool flag=true;
+				for(int j=0;j<cnt;j++){
+					if(str==tree[j]){
+						num[j]++;
+						flag=false;
+						break;
+					}
+				}
+				if(flag==true){
+					tree[(int)cnt]=str;
+					num[(int)cnt]=1;
+					cnt++;
 				}
 			}
-			if(flag==true){
-				tree[(int)cnt]=str;
-				num[(int)cnt]=1;
-				cnt++;
-			}
-			getline(cin,str);
+			else break;
 		}
 		int ordernum[(int)cnt];
 		for(int j=0;j<cnt;j++){
